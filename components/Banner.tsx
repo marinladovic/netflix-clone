@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Movie } from '../typings';
-//import { baseUrl } from '../constants/movie';
+import { baseUrl } from '../constants/movie';
 import { FaPlay } from 'react-icons/fa';
 import { InformationCircleIcon } from '@heroicons/react/24/solid';
 
@@ -22,9 +22,7 @@ function Banner({ netflixOriginals }: Props) {
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <div className="absolute top-0 left-0 -z-10 h-[95vh] w-full">
         <Image
-          src={`https://image.tmdb.org/t/p/original/${
-            movie?.backdrop_path || movie?.poster_path
-          } `}
+          src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path} `}
           layout="fill"
           objectFit="cover"
         />
