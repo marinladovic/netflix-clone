@@ -86,7 +86,7 @@ function Login() {
           type="submit"
           className="w-full rounded bg-[#e50914] py-3 font-semibold"
         >
-          {!loading ? 'Sign In' : 'Loading...'}
+          Sign In
         </button>
         <div className="text-[gray]">
           New to Netflix?{' '}
