@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+import useAuth from '../hooks/useAuth';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,13 +44,14 @@ function Header() {
         <MagnifyingGlassIcon className="hidden sm:inline h-6 w-6" />
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
-        <Link href="/account">
-          <img
-            src="/assets/account_image.png"
-            alt=""
-            className="cursor-pointer rounded"
-          />
-        </Link>
+        {/* <Link href="/account"> */}
+        <img
+          onClick={logout}
+          src="/assets/account_image.png"
+          alt=""
+          className="cursor-pointer rounded"
+        />
+        {/* </Link> */}
       </div>
     </header>
   );
