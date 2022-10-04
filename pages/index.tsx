@@ -11,6 +11,7 @@ import { modalState } from '../atoms/modalAtom';
 import { useRecoilValue } from 'recoil';
 import payments from '../lib/stripe';
 import requests from '../utils/requests';
+import useSubscription from '../hooks/useSubscription';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -35,9 +36,11 @@ const Home = ({
   trendingNow,
   products,
 }: Props) => {
-  const { loading } = useAuth();
+  const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
-  const subscription = false;
+  const subscription = useSubscription(user);
+
+  console.log({ subscription });
 
   if (loading || subscription === null) return null;
 
