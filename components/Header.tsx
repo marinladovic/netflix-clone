@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import useAuth from '../hooks/useAuth';
+import BasicMenu from './BasicMenu';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,6 +33,8 @@ function Header() {
           className="cursor-pointer object-contain"
         />
 
+        <BasicMenu />
+
         <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
           <li className="headerLink">TV Shows</li>
@@ -44,14 +47,13 @@ function Header() {
         <MagnifyingGlassIcon className="hidden sm:inline h-6 w-6" />
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
-        {/* <Link href="/account"> */}
-        <img
-          onClick={logout}
-          src="/assets/account_image.png"
-          alt=""
-          className="cursor-pointer rounded"
-        />
-        {/* </Link> */}
+        <Link href="/account">
+          <img
+            src="/assets/account_image.png"
+            alt=""
+            className="cursor-pointer rounded"
+          />
+        </Link>
       </div>
     </header>
   );

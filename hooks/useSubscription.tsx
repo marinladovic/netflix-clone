@@ -10,6 +10,7 @@ function useSubscription(user: User | null) {
   const [subscription, setSubscription] = useState<Subscription | null>(null);
 
   useEffect(() => {
+    console.log('useSubscription', { user });
     if (!user) return;
 
     onCurrentUserSubscriptionUpdate(payments, (snapshot) => {
